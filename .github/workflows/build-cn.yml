@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "scripts/localize_cn.py"
+      - "scripts/localize_cn_safe.py"
       - ".github/workflows/build-cn.yml"
   workflow_dispatch:
 
@@ -25,7 +26,7 @@ jobs:
           java-version: "17"
 
       - name: Apply Simplified Chinese localization
-        run: python3 scripts/localize_cn.py
+        run: python3 scripts/localize_cn_safe.py
 
       - name: Build installable debug APK
         run: chmod +x ./gradlew && ./gradlew clean assembleDebug --no-daemon
